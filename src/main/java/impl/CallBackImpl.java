@@ -13,7 +13,7 @@ public class CallBackImpl implements Callback, Callable<Boolean> {
     @Override
     public Boolean call() throws Exception {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("czy ponowić zapis t/n");
+        System.out.println("czy ponowic zapis t/n");
         return scanner.next().toLowerCase().equals("t");
     }
 }
