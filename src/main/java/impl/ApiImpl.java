@@ -26,7 +26,7 @@ public class ApiImpl implements Api {
 
     @Override
     public void setCallback(Callback callback) {
-
+        this.callback = callback;
     }
 
     @Override
