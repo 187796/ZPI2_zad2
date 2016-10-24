@@ -17,16 +17,19 @@ public class ApiImpl implements Api {
     private String badString;
     private Callback callback;
 
+    @Override
     public void setData(String fileName, String goodString, String badString) {
         this.fileName = fileName;
         this.goodString = goodString;
         this.badString = badString;
     }
 
+    @Override
     public void setCallback(Callback callback) {
-        this.callback = callback;
+
     }
 
+    @Override
     public void writeToFile() {
         boolean result;
         File file = new File(fileName);
