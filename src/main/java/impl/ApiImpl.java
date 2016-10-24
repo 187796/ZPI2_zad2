@@ -42,4 +42,9 @@ public class ApiImpl implements Api {
         }
         System.out.println("Writer: " + (result ? goodString : badString));
     }
+
+    @Override
+    public void doOnExit() {
+        System.out.println("zamykanie aplikacji");
+    }
 }
