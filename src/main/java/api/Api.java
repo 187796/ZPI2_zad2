@@ -7,5 +7,5 @@ public interface Api {
     void setData(String fileName, String goodString, String badString);
     void setCallback(Callback callback);
     void writeToFile();
-    void doOnExit();
+    boolean doOnExit();
 }
