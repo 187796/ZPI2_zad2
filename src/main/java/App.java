@@ -13,11 +13,16 @@ public class App {
     private static String fileName;
 
     public static void main(String[] args) {
+        final DynLib dynLib = new DynLib();
+        Callback callback = null;
 
+        dynLib.setData(fileName,goodString,wrongString);
+        dynLib.writeToFile();
+        dynLib.setCallback(callback);
 
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             public void run() {
-                //callback.call();
+                dynLib.doOnExit();
             }
         }));
     }
