@@ -12,19 +12,27 @@ public class App {
     private static String goodString;
     private static String fileName;
 
-    public static void main(String[] args) {
-        final DynLib dynLib = new DynLib();
-        Callback callback = null;
+    public static void main(final String[] args) {
+        final ApiImpl apiImpl = new ApiImpl();
+        final Callback callback = null;
+
+        doMain(apiImpl, callback);
+
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            public void run() {
+                if(apiImpl.doOnExit()){
+                    doMain(apiImpli,callback);
+                }
+            }
+        }));
+    }
+
+    private static void doMain(ApiImpl dynLib, Callback callback) {
+        readData();
 
         dynLib.setData(fileName,goodString,wrongString);
         dynLib.writeToFile();
         dynLib.setCallback(callback);
-
-        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-            public void run() {
-                dynLib.doOnExit();
-            }
-        }));
     }
 
     private static String readValue(String message) {
