@@ -47,8 +47,8 @@ public class ApiImpl implements Api {
     }
 
     @Override
-    public void doOnExit() {
+    public boolean doOnExit() {
         System.out.println("zamykanie aplikacji");
-        callback.call();
+        return (boolean) callback.call();
     }
 }
