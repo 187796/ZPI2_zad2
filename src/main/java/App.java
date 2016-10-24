@@ -1,4 +1,6 @@
 import api.Callback;
+import impl.ApiImpl;
+import impl.CallBackImpl;
 
 import java.util.Scanner;
 
@@ -14,14 +16,14 @@ public class App {
 
     public static void main(final String[] args) {
         final ApiImpl apiImpl = new ApiImpl();
-        final Callback callback = null;
+        final Callback callback = new CallBackImpl();
 
         doMain(apiImpl, callback);
 
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             public void run() {
                 if(apiImpl.doOnExit()){
-                    doMain(apiImpli,callback);
+                    doMain(apiImpl, callback);
                 }
             }
         }));
